@@ -107,3 +107,53 @@ public class ValidadorFunciones {
         return estado == 4;
     }
 }
+public static boolean validarVoid(String tipo) {
+
+    int estado = 0;
+
+    for (int i = 0; i < tipo.length(); i++) {
+
+        char letra = tipo.charAt(i);
+
+        switch (estado) {
+
+            case 0:
+                if (letra == 'v') {
+                    estado = 1;
+                } else {
+                    estado = -1;
+                }
+                break;
+
+            case 1:
+                if (letra == 'o') {
+                    estado = 2;
+                } else {
+                    estado = -1;
+                }
+                break;
+
+            case 2:
+                if (letra == 'i') {
+                    estado = 3;
+                } else {
+                    estado = -1;
+                }
+                break;
+
+            case 3:
+                if (letra == 'd') {
+                    estado = 4;
+                } else {
+                    estado = -1;
+                }
+                break;
+
+            default:
+                estado = -1;
+                break;
+        }
+    }
+
+    return estado == 4;
+}
